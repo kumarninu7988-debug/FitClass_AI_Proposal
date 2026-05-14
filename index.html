@@ -1,1387 +1,1357 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitClass AI WhatsApp Automation System | Smart Customer Engagement & Membership Growth</title>
-    <style>
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #111118;
-            --bg-card: #16161f;
-            --bg-card-hover: #1c1c28;
-            --accent: #ff6b2b;
-            --accent-glow: #ff8c52;
-            --accent-secondary: #00c9a7;
-            --gold: #f0c060;
-            --text-primary: #e8e8f0;
-            --text-secondary: #b0b0c0;
-            --text-muted: #8888a0;
-            --border: #252535;
-            --border-light: #2a2a3a;
-            --gradient-1: linear-gradient(135deg, #ff6b2b 0%, #ff3c6e 50%, #c0392b 100%);
-            --gradient-2: linear-gradient(135deg, #00c9a7 0%, #00b4d8 100%);
-            --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #111118 30%, #0d0d15 100%);
-            --shadow-glow: 0 0 40px rgba(255, 107, 43, 0.15);
-            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --radius-xl: 28px;
-            --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-image:
-                radial-gradient(ellipse at 20% 10%, rgba(255, 107, 43, 0.04) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 40%, rgba(0, 201, 167, 0.03) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, rgba(255, 60, 110, 0.03) 0%, transparent 55%);
-        }
-
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ==================== COVER / HERO ==================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 24px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            left: -20%;
-            width: 140%;
-            height: 180%;
-            background:
-                radial-gradient(circle at 30% 30%, rgba(255, 107, 43, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(0, 180, 216, 0.06) 0%, transparent 45%);
-            z-index: 0;
-            animation: heroPulse 8s ease-in-out infinite;
-        }
-
-        @keyframes heroPulse {
-            0%,
-            100% {
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 1.2;
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border: 1px solid rgba(255, 107, 43, 0.4);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent-glow);
-            background: rgba(255, 107, 43, 0.06);
-            margin-bottom: 28px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-icon {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-14px);
-            }
-        }
-
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: clamp(2.2rem, 5vw, 3.4rem);
-            font-weight: 800;
-            letter-spacing: -1px;
-            line-height: 1.15;
-            margin-bottom: 10px;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            letter-spacing: 0.3px;
-        }
-
-        .hero-tagline {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .hero-divider {
-            width: 80px;
-            height: 3px;
-            background: var(--gradient-1);
-            border-radius: 10px;
-            margin: 0 auto 24px;
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .hero-meta strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 14px 36px;
-            background: var(--gradient-1);
-            color: #fff;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 30px rgba(255, 107, 43, 0.3);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 40px rgba(255, 107, 43, 0.45);
-        }
-
-        .hero-ascii {
-            font-family: 'Courier New', monospace;
-            font-size: 0.65rem;
-            color: var(--accent);
-            opacity: 0.5;
-            margin-top: 30px;
-            letter-spacing: 1px;
-            white-space: pre;
-            line-height: 1.3;
-        }
-
-        /* ==================== SECTIONS ==================== */
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-number {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent-glow);
-            margin-bottom: 8px;
-            padding: 4px 14px;
-            border: 1px solid rgba(255, 107, 43, 0.25);
-            border-radius: 50px;
-            background: rgba(255, 107, 43, 0.04);
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section-divider {
-            width: 50px;
-            height: 3px;
-            background: var(--gradient-1);
-            border-radius: 10px;
-            margin: 16px auto 0;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 28px 30px;
-            margin-bottom: 20px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            border-color: var(--border-light);
-            box-shadow: var(--shadow-card);
-            background: var(--bg-card-hover);
-        }
-
-        .card-accent-left {
-            border-left: 3px solid var(--accent);
-        }
-
-        .card-accent-green {
-            border-left: 3px solid var(--accent-secondary);
-        }
-
-        .card-title {
-            font-family: var(--font-heading);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card-title .icon {
-            font-size: 1.4rem;
-        }
-
-        .card-text {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.7;
-        }
-
-        .card-highlight {
-            display: inline-block;
-            background: rgba(255, 107, 43, 0.1);
-            color: var(--accent-glow);
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        /* Info Box */
-        .info-box {
-            background: rgba(255, 107, 43, 0.05);
-            border: 1px solid rgba(255, 107, 43, 0.2);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin: 20px 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .info-box strong {
-            color: #fff;
-        }
-
-        /* ==================== TABLES ==================== */
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 24px 0;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        table thead {
-            background: var(--bg-secondary);
-        }
-
-        table thead th {
-            padding: 14px 18px;
-            text-align: left;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.3px;
-            font-size: 0.85rem;
-            border-bottom: 2px solid var(--border);
-            white-space: nowrap;
-        }
-
-        table tbody td {
-            padding: 13px 18px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
-            vertical-align: top;
-        }
-
-        table tbody tr {
-            transition: var(--transition);
-        }
-
-        table tbody tr:hover {
-            background: rgba(255, 255, 255, 0.015);
-        }
-
-        table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .badge-red {
-            display: inline-block;
-            background: rgba(255, 60, 80, 0.15);
-            color: #ff5c6c;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 600;
-        }
-
-        .badge-green {
-            display: inline-block;
-            background: rgba(0, 201, 167, 0.12);
-            color: #00e6be;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 600;
-        }
-
-        /* ==================== CHAT EXAMPLES ==================== */
-        .chat-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-            margin: 16px 0;
-            max-width: 600px;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
-
-        .chat-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-glow);
-            margin-bottom: 14px;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .chat-bubble {
-            max-width: 85%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            margin-bottom: 10px;
-            font-size: 0.88rem;
-            line-height: 1.5;
-            position: relative;
-            word-wrap: break-word;
-        }
-
-        .chat-bubble.user {
-            background: #1e2a3a;
-            color: #d0d8e8;
-            margin-left: auto;
-            border-bottom-right-radius: 4px;
-            text-align: left;
-        }
-
-        .chat-bubble.ai {
-            background: rgba(255, 107, 43, 0.12);
-            color: #f0e0d8;
-            margin-right: auto;
-            border-bottom-left-radius: 4px;
-            text-align: left;
-            border: 1px solid rgba(255, 107, 43, 0.2);
-        }
-
-        .chat-bubble .sender {
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            display: block;
-            margin-bottom: 3px;
-            opacity: 0.7;
-        }
-
-        /* ==================== FLOW DIAGRAM ==================== */
-        .flow-diagram {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 30px 20px;
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            font-size: 0.78rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            overflow-x: auto;
-            white-space: pre;
-            letter-spacing: 0.5px;
-        }
-
-        .flow-diagram .highlight-node {
-            color: var(--accent-glow);
-            font-weight: 700;
-        }
-
-        /* ==================== PRICING CARDS ==================== */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 24px 0;
-        }
-
-        .pricing-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 28px 22px;
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-glow);
-            background: var(--bg-card-hover);
-            transform: scale(1.03);
-        }
-
-        .pricing-card.featured::before {
-            content: '⭐ RECOMMENDED';
-            position: absolute;
-            top: -13px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient-1);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 5px 16px;
-            border-radius: 50px;
-            white-space: nowrap;
-        }
-
-        .pricing-card .plan-name {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .pricing-card .plan-price {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--accent-glow);
-            margin: 8px 0;
-        }
-
-        .pricing-card .plan-price small {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: var(--text-muted);
-        }
-
-        .pricing-card .plan-details {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-top: 10px;
-        }
-
-        .pricing-card .plan-note {
-            font-size: 0.8rem;
-            color: var(--accent-secondary);
-            margin-top: 10px;
-            font-weight: 600;
-        }
-
-        /* ==================== PROCESS STEPS ==================== */
-        .steps-list {
-            list-style: none;
-            padding: 0;
-            counter-reset: step-counter;
-        }
-
-        .steps-list li {
-            counter-increment: step-counter;
-            position: relative;
-            padding: 20px 20px 20px 60px;
-            margin-bottom: 14px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .steps-list li:hover {
-            border-color: var(--border-light);
-            background: var(--bg-card-hover);
-        }
-
-        .steps-list li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 34px;
-            height: 34px;
-            background: var(--gradient-1);
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.85rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ==================== HIGHLIGHT BOX ==================== */
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(255, 107, 43, 0.08) 0%, rgba(255, 60, 110, 0.04) 100%);
-            border: 1px solid rgba(255, 107, 43, 0.3);
-            border-radius: var(--radius-lg);
-            padding: 24px 28px;
-            margin: 24px 0;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            text-align: center;
-        }
-
-        .highlight-box .big-emoji {
-            font-size: 2.5rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        /* ==================== QUOTE BLOCK ==================== */
-        .quote-block {
-            background: var(--bg-card);
-            border-left: 4px solid var(--accent);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            padding: 18px 22px;
-            margin: 20px 0;
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* ==================== FOOTER / CLOSING ==================== */
-        .closing-section {
-            text-align: center;
-            padding: 60px 0;
-        }
-
-        .closing-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 40px 30px;
-            display: inline-block;
-            max-width: 600px;
-            width: 100%;
-        }
-
-        .closing-tagline {
-            font-family: var(--font-heading);
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 16px 0;
-            letter-spacing: -0.3px;
-        }
-
-        .closing-contact {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .closing-contact strong {
-            color: #fff;
-        }
-
-        .footer-note {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 24px;
-            opacity: 0.6;
-        }
-
-        /* ==================== RESPONSIVE ==================== */
-        @media (max-width: 600px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            .card {
-                padding: 18px 16px;
-            }
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            .pricing-card.featured {
-                transform: none;
-            }
-            .flow-diagram {
-                font-size: 0.65rem;
-                padding: 16px 10px;
-            }
-            .chat-container {
-                padding: 12px;
-            }
-            .chat-bubble {
-                font-size: 0.78rem;
-                padding: 8px 12px;
-            }
-            section {
-                padding: 40px 0;
-            }
-            .steps-list li {
-                padding: 14px 12px 14px 48px;
-                font-size: 0.82rem;
-            }
-            .steps-list li::before {
-                width: 28px;
-                height: 28px;
-                font-size: 0.7rem;
-                left: 10px;
-            }
-        }
-
-        /* ==================== UTILITY ==================== */
-        .text-accent {
-            color: var(--accent-glow);
-        }
-        .text-green {
-            color: var(--accent-secondary);
-        }
-        .text-bold {
-            font-weight: 700;
-        }
-        .text-center {
-            text-align: center;
-        }
-        .mt-2 {
-            margin-top: 16px;
-        }
-        .mt-3 {
-            margin-top: 24px;
-        }
-        .mb-2 {
-            margin-bottom: 16px;
-        }
-        .mb-3 {
-            margin-bottom: 24px;
-        }
-        .divider-line {
-            width: 100%;
-            height: 1px;
-            background: var(--border);
-            margin: 32px 0;
-        }
-        .inline-code {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-glow);
-        }
-    </style>
+    <title>FitClass AI Automation System | Premium Business Proposal by Pankaj Sharma</title>
+    <meta name="description"
+        content="Transform FitClass into an AI-powered fitness empire. 24/7 WhatsApp automation for lead generation, membership conversion, and customer retention. Proposal by Pankaj Sharma.">
+    <meta name="keywords"
+        content="FitClass, AI automation, automation system, gym CRM, fitness business growth, lead generation, Pankaj Sharma">
+    <meta name="author" content="Pankaj Sharma">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FitClass AI Automation System | Premium Proposal">
+    <meta property="og:description"
+        content="Transform FitClass into an AI-powered fitness empire with 24/7 WhatsApp automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fitclass.in/">
+    <meta property="og:image" content="https://fitclass.in/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FitClass AI Automation System">
+    <meta name="twitter:description" content="Premium AI automation proposal for FitClass gym franchise.">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "FitClass AI Automation System",
+        "description": "Premium business proposal for AI-powered gym automation system",
+        "author": {
+            "@type": "Person",
+            "name": "Pankaj Sharma"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Automation Solutions"
+        }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">FITCLASS</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <div class="loader-text">Initializing AI Systems...</div>
+        </div>
+    </div>
 
-    <!-- ==================== COVER / HERO SECTION ==================== -->
-    <header class="hero">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon"><i class="fas fa-dumbbell"></i></span>
+                <span class="logo-text">FITCLASS</span>
+                <span class="logo-badge">AI</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#problem" class="nav-link">Problem</a></li>
+                <li><a href="#solution" class="nav-link">Solution</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#timeline" class="nav-link">Timeline</a></li>
+            </ul>
+            <a href="https://wa.me/917082998913" class="nav-cta" target="_blank">
+                <i class="fab fa-whatsapp"></i> Let's Talk
+            </a>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-grid"></div>
+        </div>
         <div class="hero-content">
-            <div class="hero-badge">⚡ AI AUTOMATION PROPOSAL</div>
-            <div class="hero-icon">🏋️‍♂️</div>
-            <h1 class="hero-title">FitClass AI WhatsApp<br>Automation System</h1>
-            <p class="hero-subtitle">Smart Customer Engagement &amp; Membership Growth Solution</p>
-            <p class="hero-tagline">Transform every WhatsApp message into a membership — 24×7, automatically.</p>
-            <div class="hero-divider"></div>
-            <div class="hero-meta">
-                <span>Presented by <strong>Pankaj Kumar</strong></span>
-                <span>AI Automation Solutions &bull; May 2026</span>
-                <span>Prepared exclusively for <strong>FitClass Gym</strong></span>
+            <div class="hero-badge reveal-up">
+                <span class="badge-pulse"></span>
+                <span>PREMIUM BUSINESS PROPOSAL</span>
             </div>
-            <a href="#pricing" class="hero-cta">🚀 View Proposal</a>
-            <div class="hero-ascii">
-                ⚡ FUTURISTIC FITNESS ⚡
-                ████████████████████████████████████████████████████
-                AI meets Iron — 24×7 Sales Machine for FitClass
-                ████████████████████████████████████████████████████
-            </div>
-        </div>
-    </header>
-
-    <!-- ==================== SECTION 1: INTRODUCTION ==================== -->
-    <section id="introduction">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 01</span>
-                <h2 class="section-title">Introduction</h2>
-                <p class="section-subtitle"><em>Jab Customer Puchhe, Toh Jawab Turant Mile</em></p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🎯</span> The Golden Moment</div>
-                <p class="card-text">
-                    Fitness is emotional. When someone finally gathers the courage to message
-                    <em>"Weight loss program ka details bhejo"</em> or <em>"Trial class kab aa sakte hain?"</em>,
-                    that moment is <strong>gold</strong>. But what happens when the reply comes 3 hours late?
-                    Or worse, next morning? <span class="card-highlight">Lead thanda pad jaata hai. Trust break hota hai.</span>
-                </p>
-            </div>
-
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">⚠️</span> Manual WhatsApp Handling — The Reality</div>
-                <p class="card-text">
-                    ❌ Missed inquiries &nbsp;|&nbsp; ❌ Slow, inconsistent replies &nbsp;|&nbsp; ❌ Staff busy on floor<br>
-                    ❌ No proper follow-up &nbsp;|&nbsp; ❌ Customer feels ignored &nbsp;|&nbsp; ❌ Lost revenue
-                </p>
-            </div>
-
-            <div class="info-box">
-                <strong>💡 The Truth:</strong> FitClass ki quality premium hai, toh customer experience bhi premium hona chahiye — <strong>instant, smart, human-like</strong>. This proposal introduces a <strong>24×7 AI WhatsApp Assistant</strong> that handles every message like your best salesperson — but without sleep, mood swings, or salary. Yeh sirf ek chatbot nahi, yeh aapka <strong>digital sales manager</strong> hai, jo har enquiry ko membership tak le jaata hai, bina kisi lead khoye.
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 2: THE MAIN PROBLEM ==================== -->
-    <section id="problem">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 02</span>
-                <h2 class="section-title">The Main Problem</h2>
-                <p class="section-subtitle">Silent Revenue Killers in the Gym Business</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Problem</th>
-                            <th>Impact on FitClass</th>
-                            <th>Severity</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>📵 Unanswered WhatsApp queries</td>
-                            <td>40–60% leads lost within 1 hour</td>
-                            <td><span class="badge-red">Critical</span></td>
-                        </tr>
-                        <tr>
-                            <td>🐢 Slow manual replies</td>
-                            <td>Customer books competitor's trial</td>
-                            <td><span class="badge-red">High</span></td>
-                        </tr>
-                        <tr>
-                            <td>🔁 Repetitive questions (fees, timings)</td>
-                            <td>Staff burnout, inconsistent answers</td>
-                            <td><span class="badge-red">High</span></td>
-                        </tr>
-                        <tr>
-                            <td>❌ No follow-up after enquiry</td>
-                            <td>Leads never convert to walk-ins</td>
-                            <td><span class="badge-red">Critical</span></td>
-                        </tr>
-                        <tr>
-                            <td>🕳️ Leaked lead data</td>
-                            <td>No centralised record of who enquired</td>
-                            <td><span class="badge-red">Medium</span></td>
-                        </tr>
-                        <tr>
-                            <td>📉 Low engagement post-enquiry</td>
-                            <td>Customer motivation fades, forgets to join</td>
-                            <td><span class="badge-red">High</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="quote-block">
-                Most gym owners think <em>"logo ko interest hai toh aayenge"</em> — but today's customer expects
-                <strong>Netflix-level instant service</strong>, even from a local gym. FitClass ka brand promise
-                <strong>"smart &amp; result-driven fitness"</strong> hai, par communication agar outdated hai,
-                toh wo promise adhoora reh jata hai.
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 3: THE SOLUTION ==================== -->
-    <section id="solution">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 03</span>
-                <h2 class="section-title">The Solution</h2>
-                <p class="section-subtitle">FitClass AI WhatsApp Assistant — Ek Smart Digital Workforce</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="highlight-box">
-                <span class="big-emoji">🤖</span>
-                <strong>Imagine a team member jo:</strong><br>
-                ✅ Kisi bhi time reply kare, 24×7 &nbsp;|&nbsp;
-                ✅ Har enquiry ka record rakhe<br>
-                ✅ Fees, timings, trial classes instantly bataye &nbsp;|&nbsp;
-                ✅ Customer ko motivate kare join karne ke liye<br>
-                ✅ Automatic follow-up kare bina kisi manual effort ke &nbsp;|&nbsp;
-                ✅ Festivals, offers, new batches ki broadcasting kare
-            </div>
-
-            <div class="card card-accent-green">
-                <div class="card-title"><span class="icon">🧠</span> Bas Itna Samajh Lijiye</div>
-                <p class="card-text">
-                    Yeh aapka <strong>AI Sales Representative + Customer Support + Marketing Assistant</strong> — sab ek saath.
-                    Aapka WhatsApp ab sirf messaging app nahi, <strong>FitClass ka growth engine</strong> ban jaayega.
-                    AI assistant human-like baatein karega, lekin machine-like efficiency ke saath.
-                    Customer ko lagega gym ka dedicated relationship manager hai — reality mein ek smart AI system kaam kar raha hoga.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 4: FEATURES ==================== -->
-    <section id="features">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 04</span>
-                <h2 class="section-title">Feature Section</h2>
-                <p class="section-subtitle">Har Feature, Ek Business Benefit</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <!-- Feature A -->
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🔹 A.</span> 24×7 AI Replies — Jab Puchho, Jawab Turant</div>
-                <p class="card-text">AI assistant instantly answers queries across all these categories:</p>
-                <div class="table-wrapper" style="margin-top:12px;">
-                    <table>
-                        <thead>
-                            <tr><th>Category</th><th>Sample Questions AI Handles</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>💵 Fees</td><td>"Monthly fees kitni hai?" , "Personal training charges?"</td></tr>
-                            <tr><td>⏰ Timings</td><td>"Morning batch kab se hai?" , "Ladies timing kya hai?"</td></tr>
-                            <tr><td>🎁 Trial</td><td>"Free trial class available hai?" , "Demo kaise book karein?"</td></tr>
-                            <tr><td>🏋️ Trainers</td><td>"Trainer male/female?" , "Certified trainers hain?"</td></tr>
-                            <tr><td>🔥 Weight Loss</td><td>"Weight loss ka best program?" , "Diet plan included?"</td></tr>
-                            <tr><td>💪 Muscle Gain</td><td>"Bulking program details?" , "Strength training hai?"</td></tr>
-                            <tr><td>📍 Location</td><td>"Gym ka exact address?" , "Parking available?"</td></tr>
-                            <tr><td>🎉 Offers</td><td>"Current discount?" , "Student package?"</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Feature B -->
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🔹 B.</span> Lead Collection System — Har Enquiry Database Mein</div>
-                <p class="card-text">
-                    AI automatically collects: ✔️ Name &nbsp;|&nbsp; ✔️ Phone number &nbsp;|&nbsp; ✔️ Email (optional) &nbsp;|&nbsp;
-                    ✔️ Fitness goal (weight loss/muscle gain/general fitness) &nbsp;|&nbsp; ✔️ Preferred time (morning/evening) &nbsp;|&nbsp;
-                    ✔️ Source (Instagram, Google, reference)<br>
-                    <span class="card-highlight">Sab kuch ek organised dashboard mein — no more paper diaries ya lost chats.</span>
-                </p>
-            </div>
-
-            <!-- Feature C -->
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🔹 C.</span> Smart AI Conversations — Human Touch with AI Speed</div>
-                <p class="card-text">
-                    Conversation flow designed to feel personal. AI qualifies leads and instantly books trials with natural, engaging dialogue in Hindi, English, or Hinglish — whatever the customer prefers.
-                </p>
-            </div>
-
-            <!-- Feature D -->
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🔹 D.</span> Membership Conversion System — Visitor to Member Journey</div>
-                <p class="card-text">
-                    Once trial done or enquiry engaged, AI gently nudges: explains membership benefits, compares packages, shows limited-period offers, shares transformation photos, and handles objections like <em>"Sochna hai"</em> with warm follow-ups.
-                </p>
-            </div>
-
-            <!-- Feature E -->
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🔹 E.</span> Automatic Follow-Up — Lead Kabhi Thanda Nahi Padega</div>
-                <p class="card-text">
-                    AI schedules: 1st follow-up in 2 hrs, 2nd next day morning with motivation, 3rd with a special offer or trial reminder, and re-engagement after 7 days — all <strong>warm, respectful, and non-spammy</strong>.
-                </p>
-            </div>
-
-            <!-- Feature F -->
-            <div class="card card-accent-left">
-                <div class="card-title"><span class="icon">🔹 F.</span> Broadcast Marketing — Message Ek Click Mein, 1000s Tak</div>
-                <p class="card-text">
-                    From the AI dashboard, send bulk WhatsApp messages for festival offers, new batch launches, transformation photos, member spotlights, and re-activation campaigns — all within WhatsApp policy and personalised with customer names.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 5: REAL CUSTOMER CHAT EXAMPLES ==================== -->
-    <section id="chat-examples">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 05</span>
-                <h2 class="section-title">Real Customer Chat Examples</h2>
-                <p class="section-subtitle">Yahi Conversations Aapke Gym Ki Growth Karenge</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <!-- Chat 1 -->
-            <div class="chat-container">
-                <div class="chat-label">📌 Example 1: Weight Loss Inquiry</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Hi, weight loss program details chahiye</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Hello! 🙌 Welcome to FitClass — India's smartest AI-powered gym. Aapka current weight aur goal batao, main best plan suggest karta hoon.</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>85 kg, goal 70 kg</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Perfect! Aapka BMI improve karne ke liye FitClass "🔥 Smart Slim" program best hai: 5 days/week mix of HIIT + functional training, custom diet chart, progress tracking. Fees: ₹2999/month. Chalo kal subah 7 AM <strong>free trial</strong> book karta hoon?</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Haan, trial book karo</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Done! Aapka trial kal 7 AM confirm hai. Location: FitClass, Sector 12. Ek form bhej raha hoon, bas naam aur number confirm karo 🙏</div>
-            </div>
-
-            <!-- Chat 2 -->
-            <div class="chat-container">
-                <div class="chat-label">📌 Example 2: Muscle Gain Inquiry</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Bulking ka koi program?</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Haan bhai! FitClass "💪 Beast Mode" program — 6 weeks, strength training + progressive overload + supplement guidance. Fees ₹3999/month, 4 personal training sessions free. Kya main aapka goal note kar loon?</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Haan, bodyweight 68, target 75</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Goal noted. Trainer Rohit (certified, 5yr exp) aapko guide karenge. Kal shaam 6 PM trial PT session book kar deta hoon?</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Ok</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Done! ID proof le aana, baaki sab humara AI handle kar lega 💪</div>
-            </div>
-
-            <!-- Chat 3 -->
-            <div class="chat-container">
-                <div class="chat-label">📌 Example 3: Fees & Timing Inquiry</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Membership charges?</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>FitClass ke paas flexible packs hain:<br>• Monthly: ₹1999 (unlimited classes)<br>• Quarterly: ₹4999 (save ₹998)<br>• Annual: ₹15999 (1 month free + diet plan)<br>All include locker, shower, group classes. Student discount bhi hai. Apna naam batao, special offer check karta hoon aapke liye 😊</div>
-                <div class="chat-bubble user"><span class="sender">👤 Customer</span>Priya</div>
-                <div class="chat-bubble ai"><span class="sender">🤖 FitClass AI</span>Priya ji, aap ladies only batch (8–9 AM) ke liye extra ₹200 off eligible ho. Aaj join karogi? Kal subah aakar dekho, free trial already open hai.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 6: BUSINESS BENEFITS ==================== -->
-    <section id="benefits">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 06</span>
-                <h2 class="section-title">Business Benefits</h2>
-                <p class="section-subtitle">Numbers + Psychology = Unstoppable Growth</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Common Gym Problem</th>
-                            <th>❌ Manual Handling</th>
-                            <th>✅ AI Automation Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lead response time</td>
-                            <td>30 min – 3 hours</td>
-                            <td><span class="badge-green">Instant (&lt;2 sec)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Enquiry conversion rate</td>
-                            <td>5–10%</td>
-                            <td><span class="badge-green">25–40% (proven)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Follow-up consistency</td>
-                            <td>Poor / Forgetful</td>
-                            <td><span class="badge-green">100% scheduled, contextual</span></td>
-                        </tr>
-                        <tr>
-                            <td>Staff cost for sales/support</td>
-                            <td>High (salary for desk)</td>
-                            <td><span class="badge-green">Minimal (AI runs 24/7)</span></td>
-                        </tr>
-                        <tr>
-                            <td>Brand perception</td>
-                            <td>Outdated</td>
-                            <td><span class="badge-green">Premium, tech-savvy</span></td>
-                        </tr>
-                        <tr>
-                            <td>Data management</td>
-                            <td>Lost in chats</td>
-                            <td><span class="badge-green">Centralised CRM</span></td>
-                        </tr>
-                        <tr>
-                            <td>Late night queries</td>
-                            <td>Unanswered</td>
-                            <td><span class="badge-green">AI engages, books next-day trial</span></td>
-                        </tr>
-                        <tr>
-                            <td>Offer reach</td>
-                            <td>Manual broadcast fails</td>
-                            <td><span class="badge-green">One-click personalised broadcast</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="info-box">
-                <strong>🧠 Additional Psychological Wins:</strong><br>
-                🔹 Instant reply creates <strong>trust</strong>. &nbsp;
-                🔹 No waiting increases <strong>perceived professionalism</strong>.<br>
-                🔹 Personalised suggestion boosts <strong>conversion urgency</strong>. &nbsp;
-                🔹 Follow-ups gently pull back lost souls — <em>"Aapki fitness journey abhi bhi pending hai"</em> hits differently.
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 7: SYSTEM FLOW DIAGRAM ==================== -->
-    <section id="flow-diagram">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 07</span>
-                <h2 class="section-title">System Flow Diagram</h2>
-                <p class="section-subtitle">Customer Journey — Entry to Membership</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="flow-diagram">
-                <span class="highlight-node">     📱 Customer Sends WhatsApp Message</span>
-                │
-                ▼
-                ╔═════════════════════════╗
-                ║  🤖 FitClass AI          ║
-                ║  WhatsApp Assistant      ║
-                ╚══════════╤══════════════╝
-                │
-                ┌────────────┼────────────┐
-                ▼            ▼            ▼
-                <span class="highlight-node">FAQ Reply</span>    <span class="highlight-node">Lead Form</span>    <span class="highlight-node">Human-like Chat</span>
-                (Fees/Timing)  (Name,Goal)  (Trial pitch)
-                │            │            │
-                └────────────┼────────────┘
-                ▼
-                <span class="highlight-node">🎯 Trial Booking / Info Shared</span>
-                │
-                ▼
-                <span class="highlight-node">📩 Automated Follow-up</span>
-                (Motivation + Offer reminders)
-                │
-                ▼
-                <span class="highlight-node">🏆 Membership Conversion</span>
-                │
-                ▼
-                <span class="highlight-node">📊 Data stored in CRM</span>
-                │
-                ▼
-                <span class="highlight-node">📢 Future Broadcast & Re-engagement</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 8: TECHNOLOGY STACK ==================== -->
-    <section id="tech-stack">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 08</span>
-                <h2 class="section-title">Technology Stack</h2>
-                <p class="section-subtitle">Simple Explanation — Powerful Tech</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr><th>Technology</th><th>What It Does (Business Language)</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>WhatsApp Business API</strong></td><td>Official connection to WhatsApp, reliable and policy-safe</td></tr>
-                        <tr><td><strong>AI Chatbot Engine</strong></td><td>Brain of the assistant, understands Hindi/English mix, intent, sentiment</td></tr>
-                        <tr><td><strong>Natural Language Processing (NLP)</strong></td><td>Ensures AI samjhe "bhai fees bata" = fees enquiry</td></tr>
-                        <tr><td><strong>Cloud CRM</strong></td><td>Stores all lead data securely, accessible anywhere</td></tr>
-                        <tr><td><strong>Automation Workflows</strong></td><td>Triggers follow-ups, reminders, broadcasts on schedule</td></tr>
-                        <tr><td><strong>Analytics Dashboard</strong></td><td>Shows how many leads, conversions, response times — real clarity</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="text-center" style="color:var(--text-muted);font-size:0.85rem;">No coding needed by gym owner. All managed by <strong>Pankaj Kumar's automation team</strong>.</p>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 9: FUTURE UPGRADES ==================== -->
-    <section id="future-upgrades">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 09</span>
-                <h2 class="section-title">Future Upgrades</h2>
-                <p class="section-subtitle">FitClass AI — Roadmap to Dominance</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="card card-accent-green">
-                <div class="card-text" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
-                    <span>🎙 <strong>Voice AI Assistant</strong> — "FitClass bhai, trial book karo" via voice note.</span>
-                    <span>🥗 <strong>AI Diet Plans</strong> — Based on goal, AI suggests weekly diet, integrated with WhatsApp.</span>
-                    <span>📈 <strong>Workout Progress Tracking</strong> — Members send weight/photo, AI plots graph, sends motivation.</span>
-                    <span>💳 <strong>Payment Integration</strong> — Direct membership purchase inside WhatsApp.</span>
-                    <span>📅 <strong>Smart Appointment Booking</strong> — Personal training slots booked automatically.</span>
-                    <span>🖥 <strong>Admin Dashboard & Mobile App</strong> — Real-time pulse of your gym's sales health.</span>
-                    <span>🌐 <strong>Multi-language</strong> — Tamil, Telugu, Marathi support for wider reach.</span>
-                    <span>📱 <strong>Insta/FB Comment Auto-reply</strong> — Any comment "fees?" gets automated DM, looped into AI.</span>
-                </div>
-            </div>
-            <p class="text-center" style="color:var(--accent-glow);margin-top:12px;"><em>Starting simple, expanding limitless.</em></p>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 10: IMPLEMENTATION PLAN ==================== -->
-    <section id="implementation">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 10</span>
-                <h2 class="section-title">Implementation Plan</h2>
-                <p class="section-subtitle">5 Steps — Zero Headache for FitClass</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <ol class="steps-list">
-                <li><strong>Step 1 — Gather Gym Info:</strong> We'll take all details: packages, prices, trainer profiles, unique USPs, brand voice, FAQs, offer rules. <em>1 meeting / form submission.</em></li>
-                <li><strong>Step 2 — AI Training & Personalisation:</strong> Our team configures AI brain with FitClass's tone (friendly, energetic). Trains on all services, handles Hindi+Hinglish comfortably.</li>
-                <li><strong>Step 3 — WhatsApp Integration:</strong> Connect official WhatsApp Business number. No porting loss, same number active.</li>
-                <li><strong>Step 4 — Test & Tweak:</strong> Run real simulations, share with FitClass management. Fine-tune responses.</li>
-                <li><strong>Step 5 — Go Live 🚀:</strong> Launch with announcement. Optional: "AI Trainers Day" social media campaign.</li>
-            </ol>
-
-            <p class="text-center" style="color:var(--accent-secondary);font-weight:600;margin-top:12px;">
-                ⏱ Total timeline: <strong>7–10 working days</strong> from info submission to live.
+            <h1 class="hero-title reveal-up">
+                <span class="title-line">FITCLASS</span>
+                <span class="title-line accent">AI</span>
+                <span class="title-line">AUTOMATION SYSTEM</span>
+            </h1>
+            <p class="hero-subtitle reveal-up">
+                Smart Customer Engagement & Membership Growth System<br>
+                <span class="subtitle-highlight">Powered by Artificial Intelligence</span>
             </p>
+            <div class="hero-stats reveal-up">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="24x7">0</div>
+                    <div class="stat-label">Hours Availability</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="85">0</div>
+                    <div class="stat-label">% Lead Boost</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Sec Response Time</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="60">0</div>
+                    <div class="stat-label">% Conversion Lift</div>
+                </div>
+            </div>
+            <div class="hero-cta reveal-up">
+                <a href="#solution" class="btn-primary">
+                    <span>Explore The System</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://wa.me/917082998913" class="btn-secondary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="wa-header">
+                            <div class="wa-back"><i class="fas fa-arrow-left"></i></div>
+                            <div class="wa-avatar">
+                                <div class="avatar-ring"></div>
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="wa-info">
+                                <div class="wa-name">FitClass AI</div>
+                                <div class="wa-status">Online <span class="status-dot"></span></div>
+                            </div>
+                        </div>
+                        <div class="wa-chat">
+                            <div class="chat-date">Today</div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Hi! Welcome to FitClass. I'm your AI assistant. How can I help
+                                    you today? 💪</div>
+                                <div class="msg-time">10:02 AM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">I want to know about membership fees</div>
+                                <div class="msg-time">10:02 AM <i class="fas fa-check-double seen"></i></div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Great choice! We have 3 premium tiers:<br><br>🥉
+                                    <b>Essential</b> — Gym + Group Classes + BCA<br>🥈 <b>Elite</b> — + Ice Bath +
+                                    Massage + U/L NCR<br>🥇 <b>Supreme</b> — + Recovery Room + Jacuzzi +
+                                    Crew<br><br>Which one interests you?
+                                </div>
+                                <div class="msg-time">10:02 AM</div>
+                            </div>
+                            <div class="msg sent typing-indicator">
+                                <div class="msg-bubble"><span class="typing-dot"></span><span
+                                        class="typing-dot"></span><span class="typing-dot"></span></div>
+                            </div>
+                        </div>
+                        <div class="wa-input">
+                            <i class="far fa-smile"></i>
+                            <div class="input-placeholder">Type a message...</div>
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="phone-glow"></div>
+                <div class="phone-float phone-float-1"><i class="fas fa-bolt"></i></div>
+                <div class="phone-float phone-float-2"><i class="fas fa-chart-line"></i></div>
+                <div class="phone-float phone-float-3"><i class="fas fa-users"></i></div>
+            </div>
         </div>
     </section>
 
-    <!-- ==================== SECTION 11: PRICING ==================== -->
-    <section id="pricing">
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-bg">
+            <div class="bg-orb orb-1"></div>
+            <div class="bg-orb orb-2"></div>
+        </div>
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 11</span>
-                <h2 class="section-title">Pricing Section</h2>
-                <p class="section-subtitle">Business-Friendly, ROI-Positive Investment</p>
-                <div class="section-divider"></div>
+            <div class="section-header reveal-up">
+                <span class="section-tag">THE BRAND</span>
+                <h2 class="section-title">About <span class="accent">FitClass</span></h2>
+                <p class="section-desc">More Than a Gym. A Lifestyle.</p>
             </div>
+            <div class="about-grid">
+                <div class="about-card reveal-up">
+                    <div class="card-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Premium Fitness Movement</h3>
+                    <p>Designed for the elite. FitClass redefines limits with world-class training across NCR, offering
+                        a sanctuary where fitness meets 5-star hospitality.</p>
+                    <div class="card-shine"></div>
+                </div>
+                <div class="about-card reveal-up">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>NCR Presence</h3>
+                    <p>Strategically located across the National Capital Region with biometric 24/7 access, allowing
+                        members to train day or night at their convenience.</p>
+                    <div class="card-shine"></div>
+                </div>
+                <div class="about-card reveal-up">
+                    <div class="card-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>World-Class Equipment</h3>
+                    <p>Technogym & Hammer Strength arsenal paired with elite personal training, BCA analysis, ice baths,
+                        recovery rooms, and jacuzzi facilities.</p>
+                    <div class="card-shine"></div>
+                </div>
+                <div class="about-card reveal-up">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Holistic Ecosystem</h3>
+                    <p>From Zumba, Yoga, CrossFit to Multi-Sport (Cricket, Pickleball, Badminton), plus Kids Play Area
+                        and Gaming Zone for complete lifestyle integration.</p>
+                    <div class="card-shine"></div>
+                </div>
+            </div>
+            <div class="about-services reveal-up">
+                <h3 class="services-title">Pillars of Performance</h3>
+                <div class="services-grid">
+                    <div class="service-item"><i class="fas fa-fire"></i><span>Weight Loss</span></div>
+                    <div class="service-item"><i class="fas fa-fist-raised"></i><span>Muscle Building</span></div>
+                    <div class="service-item"><i class="fas fa-running"></i><span>CrossFit</span></div>
+                    <div class="service-item"><i class="fas fa-spa"></i><span>Yoga</span></div>
+                    <div class="service-item"><i class="fas fa-music"></i><span>Zumba</span></div>
+                    <div class="service-item"><i class="fas fa-user-friends"></i><span>Group Workout</span></div>
+                    <div class="service-item"><i class="fas fa-baseball-ball"></i><span>Multi-Sport</span></div>
+                    <div class="service-item"><i class="fas fa-user-md"></i><span>Health Mgmt.</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Problem Section -->
+    <section id="problem" class="problem">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">THE CHALLENGE</span>
+                <h2 class="section-title">The <span class="accent">Hidden Leaks</span> in Your Business</h2>
+                <p class="section-desc">Every unanswered message is a lost membership. Every delayed reply is revenue
+                    walking out the door.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card reveal-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-comment-slash"></i>
+                    </div>
+                    <div class="problem-number">01</div>
+                    <h3>Missed Leads</h3>
+                    <p>Potential members message after hours. By morning, they've already chosen your competitor.
+                        <strong>40% of gym inquiries happen outside business hours.</strong>
+                    </p>
+                    <div class="problem-bar">
+                        <div class="bar-fill" data-width="78"></div>
+                    </div>
+                    <div class="bar-label">78% leads lost due to late response</div>
+                </div>
+                <div class="problem-card reveal-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="problem-number">02</div>
+                    <h3>Slow Replies</h3>
+                    <p>Staff juggling floor duties and DMs leads to 2-4 hour response delays. Modern consumers expect
+                        answers in under 5 minutes.</p>
+                    <div class="problem-bar">
+                        <div class="bar-fill" data-width="65"></div>
+                    </div>
+                    <div class="bar-label">65% abandon inquiry after 1 hour</div>
+                </div>
+                <div class="problem-card reveal-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-user-times"></i>
+                    </div>
+                    <div class="problem-number">03</div>
+                    <h3>No Follow-Up</h3>
+                    <p>Interested prospects slip through cracks. No systematic nurturing means warm leads go cold within
+                        48 hours of first contact.</p>
+                    <div class="problem-bar">
+                        <div class="bar-fill" data-width="82"></div>
+                    </div>
+                    <div class="bar-label">82% need 3+ touchpoints to convert</div>
+                </div>
+                <div class="problem-card reveal-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="problem-number">04</div>
+                    <h3>Customer Drop-offs</h3>
+                    <p>Members cancel because they feel forgotten. No check-ins, no motivation, no personalized
+                        engagement post-joining.</p>
+                    <div class="problem-bar">
+                        <div class="bar-fill" data-width="55"></div>
+                    </div>
+                    <div class="bar-label">55% churn due to poor engagement</div>
+                </div>
+                <div class="problem-card reveal-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="problem-number">05</div>
+                    <h3>Manual Handling</h3>
+                    <p>Your team spends hours answering repetitive questions about fees, timings, and facilities instead
+                        of focusing on member experience.</p>
+                    <div class="problem-bar">
+                        <div class="bar-fill" data-width="70"></div>
+                    </div>
+                    <div class="bar-label">70% queries are repetitive FAQs</div>
+                </div>
+                <div class="problem-card reveal-up">
+                    <div class="problem-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div class="problem-number">06</div>
+                    <h3>Lost Memberships</h3>
+                    <p>Every month, hundreds of potential members choose other gyms simply because their questions were
+                        answered faster elsewhere.</p>
+                    <div class="problem-bar">
+                        <div class="bar-fill" data-width="88"></div>
+                    </div>
+                    <div class="bar-label">88% value speed over price</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution">
+        <div class="solution-bg">
+            <div class="solution-grid"></div>
+        </div>
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">THE BREAKTHROUGH</span>
+                <h2 class="section-title">Introducing <span class="accent">FitClass AI</span></h2>
+                <p class="section-desc">Your 24/7 AI Sales Employee. Never sleeps. Never misses. Always converts.</p>
+            </div>
+            <div class="solution-hero reveal-up">
+                <div class="solution-visual">
+                    <div class="ai-core">
+                        <div class="core-ring ring-1"></div>
+                        <div class="core-ring ring-2"></div>
+                        <div class="core-ring ring-3"></div>
+                        <div class="core-center">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="core-particles"></div>
+                    </div>
+                </div>
+                <div class="solution-content">
+                    <h3>The Gym AI WhatsApp Assistant</h3>
+                    <p>This is not just a chatbot. This is an <strong>AI Customer Engagement Engine</strong> — a fully
+                        autonomous system that handles inquiries, qualifies leads, books trials, sells memberships, and
+                        retains customers through intelligent, human-like conversations on WhatsApp.</p>
+                    <ul class="solution-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>AI Sales System</strong> — Converts casual
+                            inquiries into paying members</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>AI Customer Engagement Engine</strong> —
+                            Personalized interactions at scale</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Automated Lead Generation Machine</strong> —
+                            Captures, nurtures, and converts 24/7</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>AI Membership Conversion Assistant</strong> —
+                            Smart scripts that close deals</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Smart Fitness Business Automation</strong> —
+                            End-to-end operational intelligence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">CAPABILITIES</span>
+                <h2 class="section-title">AI <span class="accent">Superpowers</span></h2>
+                <p class="section-desc">Ten intelligent modules working in harmony to grow your fitness empire.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-reply-all"></i>
+                    </div>
+                    <h3>AI Auto Replies</h3>
+                    <p>Instant intelligent responses to every inquiry. Fees, timings, facilities, classes — answered in
+                        milliseconds with your brand voice.</p>
+                    <div class="feature-tag">24/7 Active</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Trial Booking</h3>
+                    <p>AI schedules free trials, sends reminders, handles rescheduling, and follows up post-visit to
+                        convert visitors into members.</p>
+                    <div class="feature-tag">Auto-Scheduler</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Membership Selling</h3>
+                    <p>Smart conversation flows that understand customer goals and recommend the perfect membership tier
+                        — Essential, Elite, or Supreme.</p>
+                    <div class="feature-tag">Conversion AI</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-funnel-dollar"></i>
+                    </div>
+                    <h3>AI Lead Collection</h3>
+                    <p>Automatically captures names, contact details, fitness goals, and preferences — building a rich
+                        database for targeted marketing.</p>
+                    <div class="feature-tag">Smart Forms</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>CRM Integration</h3>
+                    <p>Seamlessly syncs with your existing systems. Every lead, conversation, and conversion tracked in
+                        one intelligent dashboard.</p>
+                    <div class="feature-tag">Unified Data</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <h3>Automated Follow-Ups</h3>
+                    <p>Intelligent drip campaigns that nurture leads over days and weeks — sending workout tips, success
+                        stories, and limited offers.</p>
+                    <div class="feature-tag">Nurture AI</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Broadcast Marketing</h3>
+                    <p>Send personalized bulk messages for new batch launches, seasonal offers, or event invitations —
+                        all with AI-crafted copy.</p>
+                    <div class="feature-tag">Mass Personalization</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Customer Retention</h3>
+                    <p>AI detects at-risk members, sends motivational messages, celebrates milestones, and re-engages
+                        inactive users automatically.</p>
+                    <div class="feature-tag">Churn Prevention</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>AI Conversion Scripts</h3>
+                    <p>Psychology-backed conversation frameworks tested on thousands of fitness leads. Every reply
+                        engineered to move toward conversion.</p>
+                    <div class="feature-tag">Proven Scripts</div>
+                </div>
+                <div class="feature-card reveal-up">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3>Smart Qualification</h3>
+                    <p>AI asks the right questions to segment leads by intent, budget, and timeline — prioritizing hot
+                        prospects for immediate action.</p>
+                    <div class="feature-tag">Lead Scoring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">SEE IT IN ACTION</span>
+                <h2 class="section-title">Real <span class="accent">WhatsApp</span> Conversations</h2>
+                <p class="section-desc">Experience how FitClass AI handles real customer scenarios with human-like
+                    precision.</p>
+            </div>
+            <div class="demo-tabs reveal-up">
+                <button class="tab-btn active" data-tab="fees">Fees Inquiry</button>
+                <button class="tab-btn" data-tab="weight">Weight Loss</button>
+                <button class="tab-btn" data-tab="muscle">Muscle Gain</button>
+                <button class="tab-btn" data-tab="trial">Trial Booking</button>
+                <button class="tab-btn" data-tab="member">Membership</button>
+            </div>
+            <div class="demo-content">
+                <!-- Fees Tab -->
+                <div class="tab-panel active" id="fees">
+                    <div class="chat-demo">
+                        <div class="chat-header">
+                            <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="chat-info">
+                                <div class="chat-name">FitClass AI Assistant</div>
+                                <div class="chat-status"><span class="status-dot"></span> Responds instantly</div>
+                            </div>
+                        </div>
+                        <div class="chat-body">
+                            <div class="chat-date">Today</div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Hi there! Welcome to FitClass — where fitness meets luxury. I'm
+                                    your AI assistant. How can I help you today? 🏋️‍♂️</div>
+                                <div class="msg-time">09:41 AM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">Hi, I want to know the membership fees</div>
+                                <div class="msg-time">09:42 AM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Absolutely! I'd love to help you find the perfect plan. We have
+                                    3 premium tiers designed for different commitment levels:<br><br>🥉 <b>Essential</b>
+                                    — Gym Access + Group Classes + BCA Test + Gen Diet Plan + 2 PT Sessions + Steam Bath
+                                    + Complimentary Drinks<br><br>🥈 <b>Elite</b> — Everything in Essential + Ice Bath
+                                    (12) + Massage (12) + U/L NCR Access<br><br>🥇 <b>Supreme</b> — Everything in Elite
+                                    + Personalized Workout Plan + Recovery Room + Crew + Jacuzzi + Reserved
+                                    Equipment<br><br>Which tier sounds right for your goals?</div>
+                                <div class="msg-time">09:42 AM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">What is the price for Elite?</div>
+                                <div class="msg-time">09:43 AM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Great choice! The <b>Elite Membership</b> is our most popular
+                                    plan. Let me connect you with our membership advisor who can share current pricing
+                                    and any active promotions.<br><br>Meanwhile, would you like to book a <b>FREE trial
+                                        session</b> to experience our Technogym equipment and ice bath facility? 🧊
+                                </div>
+                                <div class="msg-time">09:43 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Weight Loss Tab -->
+                <div class="tab-panel" id="weight">
+                    <div class="chat-demo">
+                        <div class="chat-header">
+                            <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="chat-info">
+                                <div class="chat-name">FitClass AI Assistant</div>
+                                <div class="chat-status"><span class="status-dot"></span> Responds instantly</div>
+                            </div>
+                        </div>
+                        <div class="chat-body">
+                            <div class="chat-date">Today</div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Hello! Ready to transform your body? I'm here to guide you.
+                                    What's your primary fitness goal? 💪</div>
+                                <div class="msg-time">02:15 PM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">I want to lose weight. Around 15kg</div>
+                                <div class="msg-time">02:16 PM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">That's an amazing goal! 15kg is absolutely achievable with the
+                                    right plan. At FitClass, we specialize in science-backed fat-burning
+                                    protocols.<br><br>Here's what I recommend for you:<br><br>🔥 <b>HIIT Group
+                                        Classes</b> — Max calorie burn<br>🥗 <b>Personalized Diet Plan</b> — Nutrition
+                                    strategy<br>📊 <b>Monthly BCA Tests</b> — Track real fat loss, not just weight<br>🧊
+                                    <b>Ice Bath Therapy</b> — Boost metabolism & recovery<br><br>Many of our members
+                                    have achieved similar results in 20-24 weeks. Would you like to see a transformation
+                                    story?
+                                </div>
+                                <div class="msg-time">02:16 PM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">Yes please!</div>
+                                <div class="msg-time">02:17 PM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Here's one of our star members — lost 18kg fat and gained 5kg
+                                    muscle in 24 weeks with our Weight Loss + Muscle Building combined program!
+                                    🌟<br><br>[Transformation Video]<br><br>You can achieve this too. Shall I book your
+                                    <b>free BCA assessment</b> and trial workout this week?
+                                </div>
+                                <div class="msg-time">02:17 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Muscle Gain Tab -->
+                <div class="tab-panel" id="muscle">
+                    <div class="chat-demo">
+                        <div class="chat-header">
+                            <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="chat-info">
+                                <div class="chat-name">FitClass AI Assistant</div>
+                                <div class="chat-status"><span class="status-dot"></span> Responds instantly</div>
+                            </div>
+                        </div>
+                        <div class="chat-body">
+                            <div class="chat-date">Today</div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Welcome to FitClass! Building muscle requires the right
+                                    environment, equipment, and guidance. How can I assist your gains today? 🏆</div>
+                                <div class="msg-time">06:30 PM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">I want to build muscle. Do you have heavy weights?</div>
+                                <div class="msg-time">06:31 PM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Oh yes — we take muscle building VERY seriously! 💪<br><br>Our
+                                    strength zones feature:<br><br>🏋️ <b>Hammer Strength</b> plate-loaded machines<br>⚡
+                                    <b>Technogym</b> selectorized equipment<br>🦍 <b>Free Weight Area</b> — dumbbells up
+                                    to 50kg<br>📐 <b>Personalized Workout Plans</b> — hypertrophy-focused
+                                    programming<br>🥩 <b>Personalized Diet Plans</b> — protein-optimized nutrition<br>🧊
+                                    <b>Ice Bath & Recovery Room</b> — compression boots + physio<br><br>Our Muscle
+                                    Building program is designed to maximize lean muscle mass and structural strength.
+                                    Interested in a trial?
+                                </div>
+                                <div class="msg-time">06:31 PM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">Do you have personal trainers for bodybuilding?</div>
+                                <div class="msg-time">06:32 PM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Absolutely! Our <b>Elite Personal Trainers</b> specialize
+                                    in:<br><br>✅ Hypertrophy programming<br>✅ Form correction & injury prevention<br>✅
+                                    Periodization for continuous gains<br>✅ Competition prep (if that's your
+                                    goal)<br><br>Supreme members get reserved equipment + crew support during peak
+                                    hours.<br><br>Ready to meet a trainer? I can schedule your <b>free PT
+                                        consultation</b> for tomorrow.</div>
+                                <div class="msg-time">06:32 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Trial Booking Tab -->
+                <div class="tab-panel" id="trial">
+                    <div class="chat-demo">
+                        <div class="chat-header">
+                            <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="chat-info">
+                                <div class="chat-name">FitClass AI Assistant</div>
+                                <div class="chat-status"><span class="status-dot"></span> Responds instantly</div>
+                            </div>
+                        </div>
+                        <div class="chat-body">
+                            <div class="chat-date">Today</div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Hi! Want to experience FitClass before committing? I can book
+                                    your complimentary trial in under a minute. 🎯</div>
+                                <div class="msg-time">11:00 AM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">Yes I want a free trial</div>
+                                <div class="msg-time">11:01 AM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Excellent! Your free trial includes:<br><br>✅ Full gym access (2
+                                    hours)<br>✅ One group class (Zumba/Yoga/HIIT)<br>✅ BCA Body Composition
+                                    Analysis<br>✅ Post-workout complimentary drink<br>✅ Steam bath access<br><br>To
+                                    book, I just need a few details:<br><br>1️⃣ Your full name?<br>2️⃣ Preferred date &
+                                    time?<br>3️⃣ Which location?</div>
+                                <div class="msg-time">11:01 AM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">Rahul, Saturday 10am, Noida branch</div>
+                                <div class="msg-time">11:02 AM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Perfect, Rahul! 🎉<br><br>Your trial is <b>confirmed</b>
+                                    for:<br>📅 <b>Saturday, 10:00 AM</b><br>📍 <b>FitClass Noida</b><br><br>What to
+                                    bring: Comfortable workout clothes + water bottle<br><br>You'll receive a reminder 2
+                                    hours before. A trainer will greet you at reception.<br><br>See you Saturday! Any
+                                    other questions?</div>
+                                <div class="msg-time">11:02 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Membership Tab -->
+                <div class="tab-panel" id="member">
+                    <div class="chat-demo">
+                        <div class="chat-header">
+                            <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="chat-info">
+                                <div class="chat-name">FitClass AI Assistant</div>
+                                <div class="chat-status"><span class="status-dot"></span> Responds instantly</div>
+                            </div>
+                        </div>
+                        <div class="chat-body">
+                            <div class="chat-date">Today</div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Welcome back! Ready to become part of the FitClass family? Let
+                                    me help you choose the perfect membership. 🌟</div>
+                                <div class="msg-time">04:00 PM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">I want to join. What's the process?</div>
+                                <div class="msg-time">04:01 PM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Fantastic decision! Joining FitClass takes just 3 simple
+                                    steps:<br><br><b>Step 1:</b> Choose your plan<br>• Essential (Gym + Classes +
+                                    BCA)<br>• Elite (+ Ice Bath + Massage + U/L NCR)<br>• Supreme (+ Recovery + Jacuzzi
+                                    + Crew)<br><br><b>Step 2:</b> Visit any branch with ID proof<br><br><b>Step 3:</b>
+                                    Get instant biometric access activated<br><br>🎁 <b>Limited Offer:</b> Join this
+                                    week and get <b>1 extra month FREE</b> on annual plans!<br><br>Which plan interests
+                                    you?</div>
+                                <div class="msg-time">04:01 PM</div>
+                            </div>
+                            <div class="msg sent">
+                                <div class="msg-bubble">Elite sounds good. Can I pay online?</div>
+                                <div class="msg-time">04:02 PM</div>
+                            </div>
+                            <div class="msg received">
+                                <div class="msg-bubble">Elite is an excellent choice! 🥈<br><br>Yes, we accept:<br>💳
+                                    UPI | Cards | Net Banking<br><br>I'll connect you with our membership desk right
+                                    now. They'll share the payment link and activate your access within 30 minutes of
+                                    payment.<br><br>You're about to join NCR's most premium fitness movement. Excited to
+                                    have you on board, Rahul! 🚀<br><br>[Connecting to membership advisor...]</div>
+                                <div class="msg-time">04:02 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">IMPACT</span>
+                <h2 class="section-title">Without AI <span class="vs">VS</span> <span class="accent">With AI</span></h2>
+                <p class="section-desc">The difference is not incremental. It's transformational.</p>
+            </div>
+            <div class="comparison-table reveal-up">
+                <div class="table-header">
+                    <div class="th th-metric">Business Metric</div>
+                    <div class="th th-before">Without AI</div>
+                    <div class="th th-after">With FitClass AI</div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-clock"></i> Response Time</div>
+                    <div class="td td-before">2-4 hours (manual)</div>
+                    <div class="td td-after"><span class="highlight">3 seconds</span> instant</div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-user-plus"></i> Lead Capture</div>
+                    <div class="td td-before">Working hours only</div>
+                    <div class="td td-after"><span class="highlight">24/7/365</span> always on</div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-percentage"></i> Conversion Rate</div>
+                    <div class="td td-before">8-12% average</div>
+                    <div class="td td-after"><span class="highlight">35-50%</span> optimized</div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-redo"></i> Follow-Up Rate</div>
+                    <div class="td td-before">Inconsistent / manual</div>
+                    <div class="td td-after"><span class="highlight">100%</span> automated</div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-briefcase"></i> Staff Time Saved</div>
+                    <div class="td td-before">40+ hours/week on DMs</div>
+                    <div class="td td-after"><span class="highlight">Zero</span> hours wasted</div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-smile"></i> Customer Experience</div>
+                    <div class="td td-before">Delayed, inconsistent</div>
+                    <div class="td td-after"><span class="highlight">Premium & instant</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-chart-bar"></i> Data & Insights</div>
+                    <div class="td td-before">Scattered / none</div>
+                    <div class="td td-after"><span class="highlight">Rich CRM analytics</span></div>
+                </div>
+                <div class="table-row">
+                    <div class="td td-metric"><i class="fas fa-shield-alt"></i> Brand Perception</div>
+                    <div class="td td-before">Traditional gym</div>
+                    <div class="td td-after"><span class="highlight">Tech-forward leader</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Section -->
+    <section id="flow" class="flow">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">HOW IT WORKS</span>
+                <h2 class="section-title">The <span class="accent">Intelligent Flow</span></h2>
+                <p class="section-desc">From first message to loyal member — fully automated.</p>
+            </div>
+            <div class="flow-diagram reveal-up">
+                <div class="flow-step">
+                    <div class="step-node">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="step-label">Customer</div>
+                    <div class="step-desc">Sends WhatsApp message</div>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="step-node active">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="step-label">AI Assistant</div>
+                    <div class="step-desc">Instantly understands intent</div>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="step-node">
+                        <i class="fas fa-funnel-dollar"></i>
+                    </div>
+                    <div class="step-label">Lead Capture</div>
+                    <div class="step-desc">Collects & qualifies data</div>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="step-node">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="step-label">Trial Booking</div>
+                    <div class="step-desc">Schedules free session</div>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="step-node">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="step-label">Membership</div>
+                    <div class="step-desc">Converts to paid member</div>
+                </div>
+                <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="flow-step">
+                    <div class="step-node">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="step-label">Retention</div>
+                    <div class="step-desc">Nurtures long-term loyalty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="tech">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">INFRASTRUCTURE</span>
+                <h2 class="section-title">Technology <span class="accent">Stack</span></h2>
+                <p class="section-desc">Enterprise-grade architecture powering your growth.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card reveal-up">
+                    <div class="tech-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Business API</h3>
+                    <p>Official Meta-approved API for reliable, scalable messaging. Blue tick verification, rich media
+                        support, and global reach.</p>
+                    <div class="tech-tags">
+                        <span>Official API</span>
+                        <span>Verified</span>
+                    </div>
+                </div>
+                <div class="tech-card reveal-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Engine</h3>
+                    <p>Advanced NLP and conversational AI trained on fitness domain. Understands context, sentiment, and
+                        intent for human-like interactions.</p>
+                    <div class="tech-tags">
+                        <span>NLP</span>
+                        <span>ML Models</span>
+                    </div>
+                </div>
+                <div class="tech-card reveal-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>CRM System</h3>
+                    <p>Intelligent lead management with automated tagging, scoring, and pipeline tracking. Every
+                        conversation becomes actionable data.</p>
+                    <div class="tech-tags">
+                        <span>Lead Scoring</span>
+                        <span>Pipeline</span>
+                    </div>
+                </div>
+                <div class="tech-card reveal-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Lead Automation</h3>
+                    <p>Smart workflows trigger based on user behavior. Auto-assign hot leads to sales team, schedule
+                        callbacks, and send reminders.</p>
+                    <div class="tech-tags">
+                        <span>Workflows</span>
+                        <span>Triggers</span>
+                    </div>
+                </div>
+                <div class="tech-card reveal-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>99.9% uptime on secure cloud servers. Auto-scaling handles peak inquiry volumes during New Year
+                        and promotional seasons.</p>
+                    <div class="tech-tags">
+                        <span>99.9% Uptime</span>
+                        <span>Secure</span>
+                    </div>
+                </div>
+                <div class="tech-card reveal-up">
+                    <div class="tech-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Real-time insights on conversations, conversion funnels, response times, and ROI. Data-driven
+                        decisions for continuous optimization.</p>
+                    <div class="tech-tags">
+                        <span>Real-time</span>
+                        <span>ROI Tracking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="future">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">ROADMAP</span>
+                <h2 class="section-title">Future <span class="accent">Upgrades</span></h2>
+                <p class="section-desc">This is just the beginning. The system evolves with your business.</p>
+            </div>
+            <div class="future-grid">
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>Voice AI Assistant</h3>
+                    <p>Members speak, AI responds. Hands-free workout guidance and voice-based membership queries.</p>
+                    <div class="future-badge">Phase 2</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>AI Diet Plans</h3>
+                    <p>Personalized nutrition recommendations based on BCA data, fitness goals, and dietary preferences.
+                    </p>
+                    <div class="future-badge">Phase 2</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-dumbbell"></i></div>
+                    <h3>Workout Tracking</h3>
+                    <p>AI logs sets, reps, and progress. Sends motivational nudges when members miss sessions.</p>
+                    <div class="future-badge">Phase 3</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Admin Dashboard</h3>
+                    <p>Full command center for gym management. Member analytics, revenue forecasts, and AI performance
+                        reports.</p>
+                    <div class="future-badge">Phase 2</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <h3>Payment Integration</h3>
+                    <p>UPI, cards, and EMI options directly within WhatsApp. Frictionless membership renewals.</p>
+                    <div class="future-badge">Phase 3</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-language"></i></div>
+                    <h3>Multi-Language AI</h3>
+                    <p>Hindi, English, Hinglish, and regional languages. Speak to every customer in their comfort zone.
+                    </p>
+                    <div class="future-badge">Phase 2</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile App</h3>
+                    <p>Branded FitClass app with AI integration. Bookings, progress, and community — all in one place.
+                    </p>
+                    <div class="future-badge">Phase 4</div>
+                </div>
+                <div class="future-card reveal-up">
+                    <div class="future-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Predictive AI models that forecast churn, optimize pricing, and identify upsell opportunities.
+                    </p>
+                    <div class="future-badge">Phase 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">IMPLEMENTATION</span>
+                <h2 class="section-title">Launch <span class="accent">Timeline</span></h2>
+                <p class="section-desc">From kickoff to live AI in just 14 days.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-step">Step 01</div>
+                        <h3>Gym Data Collection</h3>
+                        <p>We gather your services, pricing, FAQs, brand voice, trainer details, and branch information
+                            to train the AI.</p>
+                        <div class="timeline-time">Day 1-2</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-step">Step 02</div>
+                        <h3>AI Training</h3>
+                        <p>Our team builds conversation flows, scripts, and decision trees tailored to FitClass's unique
+                            offerings and brand tone.</p>
+                        <div class="timeline-time">Day 3-5</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-step">Step 03</div>
+                        <h3>WhatsApp Integration</h3>
+                        <p>Official WhatsApp Business API setup, number verification, and template message approval from
+                            Meta.</p>
+                        <div class="timeline-time">Day 6-8</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-step">Step 04</div>
+                        <h3>CRM Setup</h3>
+                        <p>Lead pipeline configuration, automation rules, notification settings, and staff access
+                            provisioning.</p>
+                        <div class="timeline-time">Day 9-10</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-step">Step 05</div>
+                        <h3>Testing</h3>
+                        <p>End-to-end testing with real scenarios. Trial bookings, fee inquiries, membership flows — all
+                            validated.</p>
+                        <div class="timeline-time">Day 11-12</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-step">Step 06</div>
+                        <h3>Launch</h3>
+                        <p>Go live! Staff training session, documentation handover, and first week of monitored
+                            performance.</p>
+                        <div class="timeline-time">Day 13-14</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">INVESTMENT</span>
+                <h2 class="section-title">Choose Your <span class="accent">Growth Plan</span></h2>
+                <p class="section-desc">Premium AI automation that pays for itself within the first month.</p>
+            </div>
             <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="plan-name">🚀 Starter Launch</div>
-                    <div class="plan-price">₹24,999 <small>one-time</small></div>
-                    <div class="plan-details">
-                        + ₹4,999/month<br>
-                        AI setup, lead collection, 3 months support, basic broadcasts
+                <div class="pricing-card reveal-up">
+                    <div class="pricing-header">
+                        <div class="pricing-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Starter Launch</h3>
+                        <div class="pricing-desc">Perfect for single-branch gyms starting their AI journey.</div>
+                    </div>
+                    <div class="pricing-price">
+                        <div class="price-one">₹24,999 <span>one-time</span></div>
+                        <div class="price-month">+ ₹4,999<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> AI setup & training</li>
+                        <li><i class="fas fa-check"></i> Lead collection automation</li>
+                        <li><i class="fas fa-check"></i> Basic auto-replies</li>
+                        <li><i class="fas fa-check"></i> 3 months priority support</li>
+                        <li><i class="fas fa-check"></i> Basic broadcast campaigns</li>
+                        <li><i class="fas fa-check"></i> WhatsApp Business API</li>
+                        <li class="disabled"><i class="fas fa-times"></i> CRM integration</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Follow-up flows</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Conversion scripts</li>
+                    </ul>
+                    <a href="https://wa.me/917082998913?text=Hi%20Pankaj,%20I'm%20interested%20in%20the%20Starter%20Launch%20plan%20for%20FitClass"
+                        class="pricing-btn" target="_blank">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured reveal-up">
+                    <div class="pricing-badge">🔥 BEST VALUE</div>
+                    <div class="pricing-header">
+                        <div class="pricing-icon"><i class="fas fa-star"></i></div>
+                        <h3>Growth Pro</h3>
+                        <div class="pricing-desc">The complete AI sales engine for serious growth.</div>
+                    </div>
+                    <div class="pricing-price">
+                        <div class="price-one">₹39,999 <span>one-time</span></div>
+                        <div class="price-month">+ ₹6,999<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Personalized follow-up flows</li>
+                        <li><i class="fas fa-check"></i> AI conversion scripts</li>
+                        <li><i class="fas fa-check"></i> Full CRM integration</li>
+                        <li><i class="fas fa-check"></i> Monthly optimization call</li>
+                        <li><i class="fas fa-check"></i> Advanced lead scoring</li>
+                        <li><i class="fas fa-check"></i> Retention automation</li>
+                        <li><i class="fas fa-check"></i> Broadcast segmentation</li>
+                        <li><i class="fas fa-check"></i> Analytics dashboard</li>
+                    </ul>
+                    <a href="https://wa.me/917082998913?text=Hi%20Pankaj,%20I'm%20interested%20in%20the%20Growth%20Pro%20plan%20for%20FitClass"
+                        class="pricing-btn btn-glow" target="_blank">Get Started</a>
+                </div>
+
+                <div class="pricing-card reveal-up">
+                    <div class="pricing-header">
+                        <div class="pricing-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>Enterprise Scale</h3>
+                        <div class="pricing-desc">For multi-location empires requiring custom power.</div>
+                    </div>
+                    <div class="pricing-price">
+                        <div class="price-one">Custom <span>Quote</span></div>
+                        <div class="price-month">Tailored<span> pricing</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Growth Pro</li>
+                        <li><i class="fas fa-check"></i> Multi-location support</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics & reports</li>
+                        <li><i class="fas fa-check"></i> Payment integration (future)</li>
+                        <li><i class="fas fa-check"></i> Priority 24/7 support</li>
+                        <li><i class="fas fa-check"></i> Custom feature development</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> White-label options</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                    </ul>
+                    <a href="https://wa.me/917082998913?text=Hi%20Pankaj,%20I'm%20interested%20in%20the%20Enterprise%20Scale%20plan%20for%20FitClass"
+                        class="pricing-btn" target="_blank">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section 1 -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <div class="cta-glow"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content reveal-up">
+                <h2>Ready To <span class="accent">Automate</span> Your Gym?</h2>
+                <p>Every day without AI is a day of lost revenue. Let's change that starting today.</p>
+                <a href="https://wa.me/917082998913?text=Hi%20Pankaj,%20I%20want%20to%20automate%20FitClass%20with%20AI"
+                    class="cta-btn btn-glow" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Start The Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section 2 -->
+    <section class="cta-section alt">
+        <div class="container">
+            <div class="cta-content reveal-up">
+                <h2>Transform WhatsApp Into A <span class="accent">Membership Machine</span></h2>
+                <p>Your customers are already on WhatsApp. Meet them where they are — with intelligence.</p>
+                <a href="https://wa.me/917082998913?text=Hi%20Pankaj,%20I%20want%20to%20turn%20WhatsApp%20into%20a%20membership%20machine%20for%20FitClass"
+                    class="cta-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Let's Build It
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision">
+        <div class="vision-bg">
+            <div class="vision-particles" id="visionParticles"></div>
+        </div>
+        <div class="container">
+            <div class="vision-content reveal-up">
+                <div class="vision-badge">THE FUTURE IS NOW</div>
+                <h2 class="vision-title">
+                    <span class="vision-brand">FitClass</span>
+                    <span class="vision-plus">+</span>
+                    <span class="vision-ai">AI</span>
+                </h2>
+                <h3 class="vision-subtitle">= Future Of Fitness Business</h3>
+                <p class="vision-text">In a world where speed defines success, the gyms that respond in seconds will own
+                    the market. FitClass already has the brand, the facilities, and the elite positioning. Now it's time
+                    to add the missing piece — <strong>intelligent automation</strong> that works while you sleep.</p>
+                <div class="vision-stats">
+                    <div class="v-stat">
+                        <div class="v-number">∞</div>
+                        <div class="v-label">Possibilities</div>
+                    </div>
+                    <div class="v-stat">
+                        <div class="v-number">0</div>
+                        <div class="v-label">Missed Leads</div>
+                    </div>
+                    <div class="v-stat">
+                        <div class="v-number">100%</div>
+                        <div class="v-label">Coverage</div>
                     </div>
                 </div>
-                <div class="pricing-card featured">
-                    <div class="plan-name">⭐ Growth Pro</div>
-                    <div class="plan-price">₹39,999 <small>one-time</small></div>
-                    <div class="plan-details">
-                        + ₹6,999/month<br>
-                        Everything above + personalised follow-up flows, conversion scripts, CRM integration, monthly optimisation call
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>FITCLASS</span>
+                        <span class="footer-badge">AI</span>
                     </div>
-                    <div class="plan-note">🔥 Best Value</div>
-                </div>
-                <div class="pricing-card">
-                    <div class="plan-name">🏆 Enterprise Scale</div>
-                    <div class="plan-price">Custom <small>quote</small></div>
-                    <div class="plan-details">
-                        Multi-location, advanced analytics, payment integration (future), priority support, custom feature development
+                    <p class="footer-desc">Premium AI automation solutions for fitness businesses that refuse to settle
+                        for average.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/fitclass_india" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/917082998913" target="_blank" class="social-link"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://fitclass.in/" target="_blank" class="social-link"><i
+                                class="fas fa-globe"></i></a>
                     </div>
                 </div>
-            </div>
-
-            <div class="info-box text-center">
-                <strong>💡 Try Before You Commit:</strong> 7-day free trial with limited AI preview (demo on test number).<br>
-                <em>Jab tak aap convince na ho, koi payment nahi.</em>
-            </div>
-
-            <div class="highlight-box">
-                <strong>📊 ROI Calculation:</strong> Agar system sirf <strong>5 extra conversions/month</strong> kare (avg. ₹3000 membership) = <strong>₹15,000 extra revenue</strong>. AI cost cover ho gayi, baaki sab profit.
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SECTION 12: WHY FITCLASS SHOULD ACT NOW ==================== -->
-    <section id="why-now">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 12</span>
-                <h2 class="section-title">Why FitClass Should Act Now</h2>
-                <p class="section-subtitle">Competition Already Moving — Aap Bhi Move Karo</p>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="card card-accent-left">
-                <div class="card-text">
-                    🏢 <strong>Bade gyms</strong> (Cult, Gold's) already use AI chatbots, lead nurturing.<br>
-                    📲 <strong>Customer expectation</strong> badal gayi — late reply = unprofessional brand.<br>
-                    🤖 AI automation isn't cost, it's <strong>asset</strong>. Aapka sales team 24×7 jagta hai bina chai break ke.<br>
-                    🎯 FitClass ka tagline ho sakta hai: <em>"Real Trainers. Smart AI. Real Results."</em> — yeh positioning aapko local competition se alag karegi.<br>
-                    💬 WhatsApp pe India ke <strong>500M+ users</strong> hain, yeh aapka direct storefront hai.<br>
-                    ⏳ <strong>Jo pehle adopt karega, wo market lead karega.</strong> Delaying means losing leads to gyms with AI assistants.
+                <div class="footer-links">
+                    <h4>Proposal</h4>
+                    <ul>
+                        <li><a href="#about">About FitClass</a></li>
+                        <li><a href="#problem">The Problem</a></li>
+                        <li><a href="#solution">AI Solution</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>System</h4>
+                    <ul>
+                        <li><a href="#demo">Live Demo</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#tech">Technology</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#future">Future Upgrades</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Presented By</h4>
+                    <div class="presenter">
+                        <div class="presenter-avatar">PS</div>
+                        <div class="presenter-info">
+                            <div class="presenter-name">Pankaj Sharma</div>
+                            <div class="presenter-role">AI Automation Solutions</div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919588587154" class="footer-wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+91 9588587154</span>
+                    </a>
                 </div>
             </div>
-
-            <div class="quote-block">
-                <strong>FitClass already premium quality classes deta hai. Ab communication mein bhi premium bano.</strong>
+            <div class="footer-bottom">
+                <p>© 2026 FitClass AI Automation Proposal. All rights reserved.</p>
+                <p class="footer-crafted">Crafted with precision by <strong>Pankaj Sharma</strong></p>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- ==================== SECTION 13: FINAL VISION ==================== -->
-    <section id="final-vision">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">SECTION 13</span>
-                <h2 class="section-title">Final Vision</h2>
-                <p class="section-subtitle">FitClass × AI = India's Smartest Fitness Brand</p>
-                <div class="section-divider"></div>
-            </div>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919588587154?text=Hi%20Pankaj,%20I%20saw%20the%20FitClass%20AI%20proposal%20and%20I'm%20interested"
+        class="wa-float" target="_blank" id="waFloat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-float-tooltip">Chat with Pankaj</span>
+    </a>
 
-            <div class="highlight-box">
-                <span class="big-emoji">🌟</span>
-                <strong>Socho ek aisi gym jahaan:</strong><br><br>
-                🔹 Ek student raat 2 baje puchhe <em>"bro, weight loss plan?"</em> — turant AI personalized jawab de, trial book kare.<br>
-                🔹 Ek working professional subah 6 baje message kare — bina wait kare, assistant usse evening Zumba batch suggest kare.<br>
-                🔹 Ek mother apni beti ke liye enquiry kare — AI safe, ladies-only environment explain kare.<br>
-                🔹 Owner dashboard dekhe: <em>"Aaj 17 naye leads, 4 trial booked, 2 membership converted."</em><br><br>
-                Yeh FitClass ka <strong>AI-powered future</strong> hai. Sirf machines nahi, <strong>meaningful conversations</strong> jo relationships banaye aur revenue laaye.<br><br>
-                Pankaj Kumar aur unki team committed hai: <strong>Sirf setup nahi, growth partnership</strong> — FitClass ko digital fitness revolution ka leader banane ke liye.
-            </div>
-        </div>
-    </section>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <!-- ==================== SECTION 14: CLOSING PAGE ==================== -->
-    <section id="closing" class="closing-section">
-        <div class="container">
-            <div class="closing-box">
-                <div style="font-size:3rem;">🏋️‍♂️🤖</div>
-                <div class="closing-tagline">"FitClass + AI = The Future of Fitness Business"</div>
-                <div class="divider-line" style="width:60px;margin:16px auto;"></div>
-                <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:16px;">
-                    <strong>Thank You for Considering</strong>
-                </p>
-                <div class="closing-contact">
-                    <strong>Proposal Prepared by:</strong><br>
-                    <strong style="font-size:1.1rem;">Pankaj Kumar</strong><br>
-                    AI Automation Architect & Growth Consultant<br>
-                    📧 pankaj@ai-automations.in<br>
-                    📞 +91-XXXXXXXXXX<br>
-                    🌐 <span style="color:var(--accent-glow);">portfolio/agency link</span>
-                </div>
-                <p style="margin-top:16px;color:var(--accent-glow);font-weight:600;">
-                    Ready to transform your gym's communication?<br>
-                    <span style="font-size:0.85rem;color:var(--text-muted);">Let's schedule a 15-min demo: <span style="color:var(--accent-secondary);">[Calendly Link]</span></span>
-                </p>
-                <div style="font-family:'Courier New',monospace;font-size:0.6rem;color:var(--accent);opacity:0.4;margin-top:20px;letter-spacing:1px;">
-                    ███████████████████████████████████████<br>
-                    LET'S BUILD THE SMARTEST GYM IN INDIA<br>
-                    ███████████████████████████████████████
-                </div>
-                <p class="footer-note">
-                    *This document is confidential and prepared exclusively for FitClass Gym.*<br>
-                    © 2026 Pankaj Kumar AI Automation Solutions
-                </p>
-            </div>
-        </div>
-    </section>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
