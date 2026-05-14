@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '';
                 const duration = 2000;
                 const step = target / (duration / 16);
                 let current = 0;
@@ -117,10 +118,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const updateCounter = () => {
                     current += step;
                     if (current < target) {
-                        counter.textContent = Math.floor(current);
+                        counter.textContent = Math.floor(current) + suffix;
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.textContent = target;
+                        counter.textContent = target + suffix;
                     }
                 };
 
